@@ -1,0 +1,60 @@
+Nuevos archivos Git
+Cambiar plataforma:
+Cambiar el enfoque a GitHubGitHub
+Cambiar el enfoque a BitbucketBitbucket
+Cambiar el enfoque a GitLabGitLab
+Git Agregar nuevos archivos
+Acabas de crear tu primer repositorio Git local. Pero está vacío.
+
+Así que agreguemos algunos archivos o creemos un nuevo archivo usando su editor de texto favorito. Luego guárdelo o muévalo a la carpeta que acaba de crear.
+
+Si quieres aprender a crear un nuevo archivo usando un editor de texto, puedes visitar nuestro tutorial HTML:
+Editores HTML
+
+Para este ejemplo, voy a usar un archivo HTML simple como este:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<p>This is the first file in my new Git Repo.</p>
+
+</body>
+</html>
+Y guárdelo en nuestra nueva carpeta como index.html.
+
+Volvamos a la terminal y enumeremos los archivos en nuestro directorio de trabajo actual:
+
+Ejemplo
+ls
+index.html
+lsenumerará los archivos en el directorio. Podemos ver que index.htmlestá ahí.
+
+Luego revisamos el Git statusy vemos si es parte de nuestro repositorio:
+
+Ejemplo
+git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add ..." to include in what will be committed)
+    index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+¡ Ahora Git conoce el archivo, pero no lo ha agregado a nuestro repositorio!
+
+Los archivos en su carpeta de repositorio de Git pueden estar en uno de 2 estados:
+
+Seguimiento: archivos que Git conoce y se agregan al repositorio
+Sin seguimiento: archivos que están en su directorio de trabajo, pero que no se agregaron al repositorio
+ Cuando agrega archivos por primera vez a un repositorio vacío, no se rastrean. Para que Git los rastree, debe organizarlos o agregarlos al entorno de preparación.
+
+Cubriremos el entorno de ensayo en el próximo capítulo.
+
