@@ -1,0 +1,80 @@
+Confirmar Git
+Como hemos terminado nuestro trabajo, estamos listos para pasar de stagea commit para nuestro repositorio.
+
+Agregar confirmaciones realiza un seguimiento de nuestro progreso y cambios a medida que trabajamos. Git considera cada commitpunto de cambio o "punto de guardado". Es un punto en el proyecto al que puede regresar si encuentra un error o desea hacer un cambio.
+
+Cuando vamos , siemprecommit debemos incluir un mensaje .
+
+Al agregar mensajes claros a cada uno commit, es fácil para usted (y para los demás) ver qué ha cambiado y cuándo.
+
+Ejemplo
+git commit -m "First release of Hello World!"
+[master (root-commit) 221ec6e] First release of Hello World!
+ 3 files changed, 26 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 bluestyle.css
+ create mode 100644 index.html
+El commit comando realiza una confirmación y agrega un mensaje.-m "message"
+
+El entorno de ensayo se ha comprometido con nuestro repositorio, con el mensaje:
+"¡Primer lanzamiento de Hello World!"
+
+Git Commit sin etapa
+A veces, cuando realiza pequeños cambios, usar el entorno de ensayo parece una pérdida de tiempo. Es posible confirmar cambios directamente, omitiendo el entorno de ensayo. La -aopción organizará automáticamente cada archivo modificado y ya rastreado.
+
+Agreguemos una pequeña actualización a index.html:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<p>This is the first file in my new Git Repo.</p>
+<p>A new line in our file!</p>
+
+</body>
+</html>
+Y comprobar el estado de nuestro repositorio. Pero esta vez usaremos la opción --short para ver los cambios de una forma más compacta:
+
+Ejemplo
+git status --short
+ M index.html
+Nota: Los indicadores de estado cortos son:
+
+?? - Archivos sin seguimiento
+A - Archivos agregados al escenario
+M - Archivos modificados
+D - Archivos eliminados
+Vemos que el archivo que esperábamos se modifica. Así que vamos a cometerlo directamente:
+
+Ejemplo
+git commit -a -m "Updated index.html with a new line"
+[master 09f4acd] Updated index.html with a new line
+ 1 file changed, 1 insertion(+)
+Advertencia: Por lo general, no se recomienda omitir el entorno de ensayo.
+
+Omitir el paso de la etapa a veces puede hacer que incluya cambios no deseados.
+
+ANUNCIO PUBLICITARIO
+
+Registro de confirmación de Git
+Para ver el historial de confirmaciones de un repositorio, puede usar el logcomando:
+
+Ejemplo
+git log
+commit 09f4acd3f8836b7f6fc44ad9e012f82faf861803 (HEAD -> master)
+Author: w3schools-test 
+Date:   Fri Mar 26 09:35:54 2021 +0100
+
+    Updated index.html with a new line
+
+commit 221ec6e10aeedbfd02b85264087cd9adc18e4b26
+Author: w3schools-test 
+Date:   Fri Mar 26 09:13:07 2021 +0100
+
+    First release of Hello World!
