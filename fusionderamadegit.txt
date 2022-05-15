@@ -1,0 +1,151 @@
+Fusión de rama de Git
+Cambiar plataforma:
+Cambiar el enfoque a GitHubGitHub
+Cambiar el enfoque a BitbucketBitbucket
+Cambiar el enfoque a GitLabGitLab
+Fusionar sucursales
+Tenemos la solución de emergencia lista, así que fusionemos las ramas maestra y de solución de emergencia.
+
+Primero, necesitamos cambiar a la rama maestra:
+
+Ejemplo
+git checkout master
+Switched to branch 'master'
+Ahora fusionamos la rama actual (maestra) con la solución de emergencia:
+
+Ejemplo
+git merge emergency-fix
+Updating 09f4acd..dfa79db
+Fast-forward
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Dado que la rama de solución de emergencia provino directamente de master y no se habían realizado otros cambios en master mientras trabajábamos, Git ve esto como una continuación de master. Por lo tanto, puede "Avanzar rápidamente", simplemente apuntando tanto al maestro como al arreglo de emergencia al mismo compromiso.
+
+Como el arreglo maestro y el arreglo de emergencia son esencialmente los mismos ahora, podemos eliminar el arreglo de emergencia, ya que ya no es necesario:
+
+Ejemplo
+git branch -d emergency-fix
+Deleted branch emergency-fix (was dfa79db).
+Conflicto de fusión
+Ahora podemos pasar a hello-world-images y seguir trabajando. Agregue otro archivo de imagen (img_hello_git.jpg) y cambie index.html, para que lo muestre:
+
+Ejemplo
+git checkout hello-world-images
+Switched to branch 'hello-world-images'
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<div><img src="img_hello_world.jpg" alt="Hello World from Space" style="width:100%;max-width:960px"></div>
+<p>This is the first file in my new Git Repo.</p>
+<p>A new line in our file!</p>
+<div><img src="img_hello_git.jpg" alt="Hello Git" style="width:100%;max-width:640px"></div>
+
+</body>
+</html>
+Ahora, hemos terminado con nuestro trabajo aquí y podemos organizar y confirmar para esta rama:
+
+Ejemplo
+git add --all
+git commit -m "added new image"
+[hello-world-images 1f1584e] added new image
+ 2 files changed, 1 insertion(+)
+ create mode 100644 img_hello_git.jpg
+Vemos que index.html ha sido cambiado en ambas ramas. Ahora estamos listos para fusionar hello-world-images en master. Pero, ¿qué pasará con los cambios que hicimos recientemente en el maestro?
+
+Ejemplo
+git checkout master
+git merge hello-world-images
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+La combinación falló, ya que hay un conflicto entre las versiones de index.html. Comprobemos el estado:
+
+Ejemplo
+git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        new file:   img_hello_git.jpg
+        new file:   img_hello_world.jpg
+
+Unmerged paths:
+  (use "git add ..." to mark resolution)
+        both modified:   index.html
+Esto confirma que hay un conflicto en index.html, pero los archivos de imagen están listos y preparados para confirmarse.
+
+Así que tenemos que arreglar ese conflicto. Abra el archivo en nuestro editor:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<div><img src="img_hello_world.jpg" alt="Hello World from Space" style="width:100%;max-width:960px"></div>
+<p>This is the first file in my new Git Repo.</p>
+<<<<<<< HEAD
+<p>This line is here to show how merging works.</p>
+=======
+<p>A new line in our file!</p>
+<div><img src="img_hello_git.jpg" alt="Hello Git" style="width:100%;max-width:640px"></div>
+>>>>>>> hello-world-images
+
+</body>
+</html>
+Podemos ver las diferencias entre las versiones y editarlo como queramos:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<div><img src="img_hello_world.jpg" alt="Hello World from Space" style="width:100%;max-width:960px"></div>
+<p>This is the first file in my new Git Repo.</p>
+<p>This line is here to show how merging works.</p>
+<div><img src="img_hello_git.jpg" alt="Hello Git" style="width:100%;max-width:640px"></div>
+
+</body>
+</html>
+Ahora podemos organizar index.html y verificar el estado:
+
+Ejemplo
+git add index.html
+git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        new file:   img_hello_git.jpg
+        new file:   img_hello_world.jpg
+        modified:   index.html
+El conflicto se solucionó y podemos usar commit para concluir la fusión:
+
+Ejemplo
+git commit -m "merged with hello-world-images after fixing conflicts"
+[master e0b6038] merged with hello-world-images after fixing conflicts
+Y elimine la rama hello-world-images:
+
+Ejemplo
+git branch -d hello-world-images
+Deleted branch hello-world-images (was 1f1584e).
+Ahora tiene una mejor comprensión de cómo funcionan las ramas y la fusión. ¡Es hora de empezar a trabajar con un repositorio remoto!
