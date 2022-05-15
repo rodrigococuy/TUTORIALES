@@ -1,0 +1,87 @@
+Entorno de prueba de Git
+Cambiar plataforma:
+Cambiar el enfoque a GitHubGitHub
+Cambiar el enfoque a BitbucketBitbucket
+Cambiar el enfoque a GitLabGitLab
+Entorno de prueba de Git
+Una de las funciones principales de Git son los conceptos del entorno de ensayo y el compromiso.
+
+Mientras trabaja, puede agregar, editar y eliminar archivos. Pero cada vez que alcance un hito o termine una parte del trabajo, debe agregar los archivos a un entorno de ensayo.
+
+Los archivos provisionales son archivos que están listos para enviarse al repositorio en el que está trabajando. Aprenderá más sobre en commitbreve.
+
+Por ahora, hemos terminado de trabajar con index.html. Entonces podemos agregarlo al entorno de ensayo:
+
+Ejemplo
+git add index.html
+El archivo debe estar en etapas . Comprobemos el estado::
+
+Ejemplo
+git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached ..." to unstage)
+    new file: index.html
+Ahora el archivo se ha agregado al entorno de ensayo.
+
+Git Agregar más de un archivo
+También puede organizar más de un archivo a la vez. Agreguemos 2 archivos más a nuestra carpeta de trabajo. Utilice el editor de texto de nuevo.
+
+Un README.mdarchivo que describa el repositorio (recomendado para todos los repositorios):
+
+Ejemplo
+# hello-world
+Hello World repository for Git tutorial
+This is an example repository for the Git tutoial on https://www.w3schools.com
+
+This repository is built step by step in the tutorial.
+Una hoja de estilo externa básica ( bluestyle.css):
+
+Ejemplo
+body {
+background-color: lightblue;
+}
+
+h1 {
+color: navy;
+margin-left: 20px;
+}
+Y actualice index.htmlpara incluir la hoja de estilo:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<p>This is the first file in my new Git Repo.</p>
+
+</body>
+</html>
+Ahora agregue todos los archivos en el directorio actual al entorno de ensayo:
+
+Ejemplo
+git add --all
+El uso --allen lugar de nombres de archivo individuales cambiará stagetodos los archivos (nuevos, modificados y eliminados).
+
+Ejemplo
+git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached ..." to unstage)
+        new file:   README.md
+        new file:   bluestyle.css
+        new file:   index.html
+Ahora los 3 archivos se agregaron al entorno de prueba y estamos listos para hacer nuestro primer archivo commit.
+
+Nota: El comando abreviado para git add --allesgit add -A
