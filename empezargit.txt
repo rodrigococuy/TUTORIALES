@@ -1,0 +1,48 @@
+Usar Git con la línea de comandos
+
+Para comenzar a usar Git, primero vamos a abrir nuestro shell de comandos.
+Para Windows, puede usar Git bash, que viene incluido en Git para Windows. Para Mac y Linux, puede usar el terminal integrado.
+Lo primero que debemos hacer es verificar si Git está correctamente instalado:
+
+Ejemplo
+git --version
+git version 2.30.2.windows.1
+Si Git está instalado, debería mostrar algo comogit version X.Y
+
+Configurar Git
+
+Ahora dile a Git quién eres. Esto es importante para los sistemas de control de versiones, ya que cada confirmación de Git utiliza esta información:
+
+Ejemplo
+git config --global user.name "w3schools-test"
+git config --global user.email "test@w3schools.com"
+Cambie el nombre de usuario y la dirección de correo electrónico por los suyos propios. Probablemente también querrá usar esto cuando se registre en GitHub más adelante.
+
+Nota: Use globalpara configurar el nombre de usuario y el correo electrónico para cada repositorio en su computadora.
+
+Si desea configurar el nombre de usuario/correo electrónico solo para el repositorio actual, puede eliminarglobal
+
+Crear carpeta Git
+
+Ahora, vamos a crear una nueva carpeta para nuestro proyecto:
+
+Ejemplo
+mkdir myproject
+cd myproject
+mkdir hacer s un nuevo directorio .
+
+cd cambia el directorio de trabajo actual .
+
+Ahora que estamos en el directorio correcto. ¡Podemos comenzar inicializando Git!
+
+Nota: si ya tiene una carpeta/directorio que le gustaría usar para Git:
+
+Navegue hasta él en la línea de comandos o ábralo en su explorador de archivos, haga clic derecho y seleccione "Git Bash aquí"
+
+Inicializar Git
+Una vez que haya navegado a la carpeta correcta, puede inicializar Git en esa carpeta:
+
+Ejemplo
+git init 
+Initialized empty Git repository in /Users/user/myproject/.git/
+¡Acabas de crear tu primer repositorio Git!
