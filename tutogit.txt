@@ -45,3 +45,10 @@ Los archivos preconfigurados están comprometidos , lo que solicita a Git que al
 Git te permite ver el historial completo de cada confirmación.
 Puede volver a cualquier confirmación anterior.
 Git no almacena una copia separada de cada archivo en cada confirmación, ¡pero realiza un seguimiento de los cambios realizados en cada confirmación!
+
+¿Por qué Git?
+
+¡Más del 70% de los desarrolladores usan Git!
+Los desarrolladores pueden trabajar juntos desde cualquier parte del mundo.
+Los desarrolladores pueden ver el historial completo del proyecto.
+Los desarrolladores pueden volver a versiones anteriores de un proyecto.
