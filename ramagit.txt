@@ -1,0 +1,129 @@
+Rama Git
+Cambiar plataforma:
+Cambiar el enfoque a GitHubGitHub
+Cambiar el enfoque a BitbucketBitbucket
+Cambiar el enfoque a GitLabGitLab
+Trabajar con ramas de Git
+En Git, a branches una versión nueva/separada del repositorio principal.
+
+Supongamos que tiene un proyecto grande y necesita actualizar el diseño.
+
+¿Cómo funcionaría eso sin y con Git?
+
+Sin Git:
+
+Haga copias de todos los archivos relevantes para evitar afectar la versión en vivo
+Comience a trabajar con el diseño y descubra que el código depende del código en otros archivos, ¡eso también debe cambiarse!
+Haga copias de los archivos dependientes también. Asegurarse de que cada dependencia de archivo haga referencia al nombre de archivo correcto
+¡EMERGENCIA! ¡Hay un error no relacionado en otra parte del proyecto que debe corregirse lo antes posible!
+Guarde todos sus archivos, tomando nota de los nombres de las copias en las que estaba trabajando
+Trabaje en el error no relacionado y actualice el código para solucionarlo
+Vuelva al diseño y termine el trabajo allí.
+Copie el código o cambie el nombre de los archivos, para que el diseño actualizado esté en la versión en vivo
+(2 semanas después, se da cuenta de que el error no relacionado no se solucionó en la nueva versión de diseño porque copió los archivos antes de la corrección)
+Con Git:
+
+Con una nueva rama llamada nuevo diseño, edite el código directamente sin afectar la rama principal
+¡EMERGENCIA! ¡Hay un error no relacionado en otra parte del proyecto que debe corregirse lo antes posible!
+Cree una nueva rama del proyecto principal llamada corrección de errores pequeños
+Solucione el error no relacionado y fusione la rama de corrección de errores pequeños con la rama principal
+Vuelve a la sucursal de nuevo diseño y termina el trabajo allí.
+Fusionar la rama de nuevo diseño con la principal (recibir alertas sobre la corrección del pequeño error que faltaba)
+Las ramas le permiten trabajar en diferentes partes de un proyecto sin afectar la rama principal.
+
+Cuando el trabajo está completo, una rama se puede fusionar con el proyecto principal.
+
+Incluso puede cambiar entre sucursales y trabajar en diferentes proyectos sin que interfieran entre sí.
+
+¡La ramificación en Git es muy ligera y rápida!
+
+Nueva rama de Git
+Vamos a agregar algunas características nuevas a nuestra index.htmlpágina.
+
+Estamos trabajando en nuestro repositorio local y no queremos perturbar o arruinar el proyecto principal.
+
+Entonces creamos un nuevo branch:
+
+Ejemplo
+git branch hello-world-images
+Ahora creamos una nueva branchllamada " hello-world-images"
+
+Confirmemos que hemos creado un nuevo branch:
+
+Ejemplo
+git branch
+  hello-world-images
+* master
+Podemos ver la nueva rama con el nombre "hello-world-images", pero al *lado masterespecifica que estamos actualmente en eso branch.
+
+checkoutes el comando utilizado para verificar un archivo branch. Moviéndonos del actual branch, al especificado al final del comando:
+
+Ejemplo
+git checkout hello-world-images
+Switched to branch 'hello-world-images'
+Ahora hemos movido nuestro espacio de trabajo actual de la rama maestra, a la nueva branch
+
+Abre tu editor favorito y haz algunos cambios.
+
+Para este ejemplo, agregamos una imagen (img_hello_world.jpg) a la carpeta de trabajo y una línea de código en el index.htmlarchivo:
+
+Ejemplo
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="bluestyle.css">
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<div><img src="img_hello_world.jpg" alt="Hello World from Space"
+style="width:100%;max-width:960px"></div>
+<p>This is the first file in my new Git Repo.</p>
+<p>A new line in our file!</p>
+
+</body>
+</html>
+Hicimos cambios en un archivo y agregamos un nuevo archivo en el directorio de trabajo (el mismo directorio que el main branch).
+
+Ahora verifique el estado de la corriente branch:
+
+Ejemplo
+git status
+On branch hello-world-images
+Changes not staged for commit:
+  (use "git add ..." to update what will be committed)
+  (use "git restore ..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add ..." to include in what will be committed)
+        img_hello_world.jpg
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Entonces, veamos lo que sucede aquí:
+
+Hay cambios en nuestro index.html, pero el archivo no está preparado para commit
+img_hello_world.jpgno es tracked
+Entonces, necesitamos agregar ambos archivos al Entorno de ensayo para esto branch:
+
+Ejemplo
+git add --all
+El uso --allen lugar de nombres de archivo individuales organizará todos los archivos modificados (nuevos, modificados y eliminados).
+
+Compruebe el statusde branch:
+
+Ejemplo
+git status
+On branch hello-world-images
+Changes to be committed:
+  (use "git restore --staged ..." to unstage)
+    new file: img_hello_world.jpg
+    modified: index.html
+Estamos contentos con nuestros cambios. Así que los cometeremos con branch:
+
+Ejemplo
+git commit -m "Added image to Hello World"
+[hello-world-images 0312c55] Added image to Hello World
+2 files changed, 1 insertion(+)
+create mode 100644 img_hello_world.jpg
