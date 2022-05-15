@@ -1,0 +1,2 @@
+Que es y para que sirve Git?
+Rta: Hoy en dia, Git es, con diferencia, el sistema de control de versiones moderno mas utilizado del mundo. Git es un proyecto de codigo abierto maduro y con un mantenimiento activo que desarrollo originalmente Linus Torvalds, el famoso creador del kernel del sistema operativo Linux, en 2005.
