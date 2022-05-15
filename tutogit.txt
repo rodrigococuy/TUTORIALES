@@ -1,16 +1,27 @@
-Que es y para que sirve Git?
-Rta: Hoy en dia, Git es, con diferencia, el sistema de control de versiones
- moderno mas utilizado del mundo. Git es un proyecto de codigo abierto maduro
+Que es y para que sirve Git:
+
+Hoy en dia, Git es, con diferencia, el sistema de control de versiones
+moderno mas utilizado del mundo. Git es un proyecto de codigo abierto maduro
 y con un mantenimiento activo que desarrollo originalmente Linus Torvalds, 
 el famoso creador del kernel del sistema operativo Linux, en 2005.
 
-Pasos para instalar git en mi pc
-Rta: Primero se debe verificar que no este instalado git en su pc
+
+Pasos para instalar git en mi pc:
+
+Primero se debe verificar que no este instalado git en su pc
 para eso debe abrir la consola con CMD y digitar git y si no esta instalado
 debe salir un error
 
-Pasos para descargar git
-Rta: Ir a la pagina https://git-scm.com/ e ir a la seccion de descargas y hacer click
+
+Pasos para descargar git:
+
+Ir a la pagina https://git-scm.com/ e ir a la seccion de descargas y hacer click
 despues de descargar el instalador lo abrimos y procedemos a instalar dando click en    
 siguiente por defecto
 
+
+Para que Se utiliza:
+
+Cambios en el código de seguimiento
+Seguimiento de quién hizo cambios
+Colaboración en codificación
