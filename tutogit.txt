@@ -52,3 +52,4 @@ Git no almacena una copia separada de cada archivo en cada confirmación, ¡pero
 Los desarrolladores pueden trabajar juntos desde cualquier parte del mundo.
 Los desarrolladores pueden ver el historial completo del proyecto.
 Los desarrolladores pueden volver a versiones anteriores de un proyecto.
+end  
